@@ -4,22 +4,16 @@ import { useState } from "react";
 import FriendList from "@/components/FriendList";
 import ChatWindow from "@/components/ChatWindow";
 
-export default function Page(){
+export default function Page() {
+  const [friend, setFriend] = useState("小明");
 
-  const [friend,setFriend] = useState("小明")
+  return (
+    <div className="flex h-screen">
 
-  return(
+      <FriendList selected={friend} setSelected={setFriend} />
 
-  <div className="flex h-screen">
+      <ChatWindow friend={friend} />
 
-    <FriendList
-    selected={friend}
-    setSelected={setFriend}
-    />
-
-    <ChatWindow friend={friend}/>
-
-  </div>
-
-  )
+    </div>
+  );
 }
