@@ -1,5 +1,5 @@
 {
-  "name": "yahoo-web-messenger",
+  "name": "yahoo-messenger-clone",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -7,12 +7,15 @@
     "start": "next start"
   },
   "dependencies": {
-    "next": "15.2.0",
+    "next": "15.2.4",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "socket.io-client": "^4.7.5",
-    "lucide-react": "^0.330.0",
     "tailwindcss": "^3.4.4",
+    "lucide-react": "^0.330.0",
     "framer-motion": "^11.0.3"
+  },
+  "devDependencies": {
+    "postcss": "^8.4.38",
+    "autoprefixer": "^10.4.20"
   }
 }
