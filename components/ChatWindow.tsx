@@ -1,52 +1,65 @@
 "use client";
 
-import { useState } from "react";
+import {useState} from "react";
 
-export default function ChatWindow({ friend }: { friend: string }) {
-  const [messages, setMessages] = useState<string[]>([]);
-  const [input, setInput] = useState("");
+export default function ChatWindow({friend}:{friend:string}){
 
-  function send() {
-    if (!input) return;
+const [messages,setMessages] = useState<string[]>([])
+const [input,setInput] = useState("")
 
-    setMessages([...messages, input]);
-    setInput("");
-  }
+function send(){
 
-  return (
-    <div className="flex flex-col flex-1">
+if(!input)return
 
-      <div className="p-4 bg-purple-700">
-        與 {friend} 聊天
-      </div>
+setMessages([...messages,input])
+setInput("")
 
-      <div className="flex-1 p-4 space-y-2 overflow-y-auto">
+}
 
-        {messages.map((m, i) => (
-          <div key={i} className="bg-purple-500 px-3 py-2 rounded w-fit">
-            {m}
-          </div>
-        ))}
+return(
 
-      </div>
+<div className="flex flex-col flex-1">
 
-      <div className="p-4 flex gap-2">
+<div className="p-4 bg-purple-700">
+與 {friend} 聊天
+</div>
 
-        <input
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          className="flex-1 p-2 bg-purple-900 rounded"
-        />
+<div className="flex-1 p-4 space-y-2 overflow-y-auto">
 
-        <button
-          onClick={send}
-          className="bg-yellow-400 text-black px-4 rounded"
-        >
-          送出
-        </button>
+{messages.map((m,i)=>(
 
-      </div>
+<div
+key={i}
+className="bg-purple-500 px-3 py-2 rounded w-fit"
+>
 
-    </div>
-  );
+{m}
+
+</div>
+
+))}
+
+</div>
+
+<div className="p-4 flex gap-2">
+
+<input
+value={input}
+onChange={(e)=>setInput(e.target.value)}
+className="flex-1 p-2 bg-purple-900 rounded"
+/>
+
+<button
+onClick={send}
+className="bg-yellow-400 text-black px-4 rounded"
+>
+送出
+</button>
+
+</div>
+
+</div>
+
+)
+
 }
